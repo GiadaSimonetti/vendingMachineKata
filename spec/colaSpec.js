@@ -1,7 +1,7 @@
 describe("Feature test", function() {
   var cola;
 
-  before(() => {
+  beforeEach(function() {
     cola = new Cola();
   });
   it("returns the price of the cola", function() {
