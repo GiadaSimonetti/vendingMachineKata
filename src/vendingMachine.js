@@ -3,3 +3,5 @@ function VendingMachine() {
   this.chips = new Chips();
   this.candy = new Candy();
 }
+
+VendingMachine.prototype.method = function(arguments) {};
