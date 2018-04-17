@@ -1,4 +1,4 @@
-# vendingMachineKataVending Machine Kata
+# vendingMachineKata
 
 ====================
 
