@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/GiadaSimonetti/vendingMachineKata/issues"
   },
-  "homepage": "https://github.com/GiadaSimonetti/vendingMachineKata#readme"
+  "homepage": "https://github.com/GiadaSimonetti/vendingMachineKata#readme",
+  "devDependencies": {
+    "karma": "^2.0.0"
+  }
 }
