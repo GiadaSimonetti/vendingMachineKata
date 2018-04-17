@@ -1,0 +1,19 @@
+{
+  "name": "vendingmachinekata",
+  "version": "1.0.0",
+  "description": "====================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiadaSimonetti/vendingMachineKata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GiadaSimonetti/vendingMachineKata/issues"
+  },
+  "homepage": "https://github.com/GiadaSimonetti/vendingMachineKata#readme"
+}
