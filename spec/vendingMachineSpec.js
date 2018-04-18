@@ -3,13 +3,11 @@ describe("Feature test", function() {
   var candy;
   var chips;
   var vendingMachine;
-  // var products;
 
   beforeEach(function() {
     cola = new Cola();
     candy = new Candy();
     chips = new Chips();
-    // products = new Products();
     vendingMachine = new VendingMachine();
   });
   it("returns the cola item", function() {
