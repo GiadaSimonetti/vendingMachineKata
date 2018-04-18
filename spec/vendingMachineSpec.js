@@ -4,5 +4,7 @@ describe("Feature test", function() {
   beforeEach(function() {
     vendingMachine = new VendingMachine();
   });
-  it("returns items", function() {});
+  it("returns the currentBalance", function() {
+    expect(vendingMachine.currentBalance).toBe(0);
+  });
 });
