@@ -1,13 +1,21 @@
 function VendingMachine() {
-  this.cola = new Cola();
-  this.chips = new Chips();
-  this.candy = new Candy();
-  // this.items = [];
+  var cola = new Cola();
+  var chips = new Chips();
+  var candy = new Candy();
   this.currentBalance = 0;
 }
 
-// VendingMachine.prototype.displayProducts = function(this.cola, this.candy, this.chips) {
-//   return cola + ": $ " + this.cola.price;
-// };
+VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
+  return (
+    "Products: cola" +
+    " = $" +
+    cola.price +
+    ", candy = $" +
+    candy.price +
+    ", chips = $" +
+    chips.price +
+    "."
+  );
+};
 
-VendingMachine.prototype.displaySoldOut = function(arguments) {};
+// VendingMachine.prototype.displaySoldOut = function(arguments) {};
