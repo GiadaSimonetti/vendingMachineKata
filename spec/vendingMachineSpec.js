@@ -28,15 +28,15 @@ describe("Feature test", function() {
     );
   });
 
-  it("returns current balance after buy a cola", function() {
-    expect(vendingMachine.buyCola(cola)).toBe(1);
+  it("returns current balance after choose a cola", function() {
+    expect(vendingMachine.chooseCola(cola)).toBe(1);
   });
 
-  it("returns current balance after buy a candy", function() {
-    expect(vendingMachine.buyCandy(candy)).toBe(0.65);
+  it("returns current balance after choose a candy", function() {
+    expect(vendingMachine.chooseCandy(candy)).toBe(0.65);
   });
 
-  it("returns current balance after buy a chips", function() {
-    expect(vendingMachine.buyChips(chips)).toBe(0.5);
+  it("returns current balance after choose a chips", function() {
+    expect(vendingMachine.chooseChips(chips)).toBe(0.5);
   });
 });

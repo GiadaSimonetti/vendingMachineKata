@@ -19,15 +19,15 @@ VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
   );
 };
 
-VendingMachine.prototype.buyCola = function(cola) {
+VendingMachine.prototype.chooseCola = function(cola) {
   return (this.currentBalance += cola.price);
 };
 
-VendingMachine.prototype.buyCandy = function(candy) {
+VendingMachine.prototype.chooseCandy = function(candy) {
   return (this.currentBalance += candy.price);
 };
 
-VendingMachine.prototype.buyChips = function(chips) {
+VendingMachine.prototype.chooseChips = function(chips) {
   return (this.currentBalance += chips.price);
 };
 
