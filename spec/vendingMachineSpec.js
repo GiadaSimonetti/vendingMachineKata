@@ -39,4 +39,8 @@ describe("Feature test", function() {
   it("returns current balance after choose a chips", function() {
     expect(vendingMachine.chooseChips(chips)).toBe(0.5);
   });
+
+  it("returns default balance after press reset", function() {
+    expect(vendingMachine.reset()).toBe(0);
+  });
 });
