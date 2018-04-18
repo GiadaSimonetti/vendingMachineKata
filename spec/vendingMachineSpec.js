@@ -63,6 +63,6 @@ describe("Feature test", function() {
   });
 
   it("returns default balance after press reset", function() {
-    expect(vendingMachine.reset()).toBe(0);
+    expect(vendingMachine.returnMoney()).toBe(0);
   });
 });

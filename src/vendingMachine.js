@@ -35,7 +35,7 @@ VendingMachine.prototype.chooseChips = function(chips) {
   return (this.currentBalance += chips.price);
 };
 
-VendingMachine.prototype.reset = function() {
+VendingMachine.prototype.returnMoney = function() {
   return this.initialBalance;
 };
 
