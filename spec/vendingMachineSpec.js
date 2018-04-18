@@ -22,6 +22,10 @@ describe("Feature test", function() {
     expect(vendingMachine.initialBalance).toBe(0);
   });
 
+  it("returns the ammount of coins as an empty array", function() {
+    expect(vendingMachine.ammountCoins).toEqual([]);
+  });
+
   it("displays the products with the price", function() {
     expect(vendingMachine.displayProducts(cola, candy, chips)).toBe(
       "Products: cola = $1, candy = $0.5, chips = $0.65."

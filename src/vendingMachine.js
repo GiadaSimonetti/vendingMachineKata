@@ -4,6 +4,7 @@ function VendingMachine() {
   var candy = new Candy();
   this.initialBalance = 0;
   this.currentBalance = 0;
+  this.ammountCoins = [];
 }
 
 VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
@@ -36,6 +37,14 @@ VendingMachine.prototype.chooseChips = function(chips) {
 
 VendingMachine.prototype.reset = function() {
   return this.initialBalance;
+};
+
+VendingMachine.prototype.counter = function(coin) {
+  if (coin === 1) {
+    return;
+  } else {
+    return ammountCoins.push(coin);
+  }
 };
 
 // VendingMachine.prototype.displaySoldOut = function(arguments) {};
