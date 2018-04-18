@@ -23,7 +23,7 @@ describe("Feature test", function() {
   });
 
   it("returns the ammount of coins as an empty array", function() {
-    expect(vendingMachine.ammountCoins).toEqual([]);
+    expect(vendingMachine.coinsAmmount).toEqual([]);
   });
 
   it("displays the products with the price", function() {
@@ -33,15 +33,33 @@ describe("Feature test", function() {
   });
 
   it("returns current balance after choose a cola", function() {
-    expect(vendingMachine.chooseCola(cola)).toBe(1);
+    vendingMachine.chooseCola(cola);
+    expect(vendingMachine.currentBalance).toBe(1);
+  });
+
+  it("returns current quantity after choose a cola", function() {
+    vendingMachine.chooseChips(cola);
+    expect(cola.currentQuantity).toBe(9);
   });
 
   it("returns current balance after choose a candy", function() {
-    expect(vendingMachine.chooseCandy(candy)).toBe(0.65);
+    vendingMachine.chooseCandy(candy);
+    expect(vendingMachine.currentBalance).toBe(0.65);
+  });
+
+  it("returns current quantity after choose a candy", function() {
+    vendingMachine.chooseChips(candy);
+    expect(candy.currentQuantity).toBe(9);
   });
 
   it("returns current balance after choose a chips", function() {
-    expect(vendingMachine.chooseChips(chips)).toBe(0.5);
+    vendingMachine.chooseChips(chips);
+    expect(vendingMachine.currentBalance).toBe(0.5);
+  });
+
+  it("returns current quantity after choose a chips", function() {
+    vendingMachine.chooseChips(chips);
+    expect(chips.currentQuantity).toBe(9);
   });
 
   it("returns default balance after press reset", function() {

@@ -4,7 +4,7 @@ function VendingMachine() {
   var candy = new Candy();
   this.initialBalance = 0;
   this.currentBalance = 0;
-  this.ammountCoins = [];
+  this.coinsAmmount = [];
 }
 
 VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
@@ -43,7 +43,7 @@ VendingMachine.prototype.counter = function(coin) {
   if (coin === 1) {
     return;
   } else {
-    return ammountCoins.push(coin);
+    return coinsAmmount.push(coin);
   }
 };
 
