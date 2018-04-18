@@ -9,3 +9,5 @@ function VendingMachine() {
 // VendingMachine.prototype.displayProducts = function(this.cola, this.candy, this.chips) {
 //   return cola + ": $ " + this.cola.price;
 // };
+
+VendingMachine.prototype.displaySoldOut = function(arguments) {};
