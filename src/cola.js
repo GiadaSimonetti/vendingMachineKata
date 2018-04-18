@@ -1,7 +1,15 @@
 function Cola() {
   this.price = 1.0;
+  this.maxQuantity = 10;
+  this.currentQuantity = this.maxQuantity;
 }
 
+Cola.prototype.buy = function() {
+  return this.currentQuantity--;
+};
+
 Cola.prototype.soldOut = function() {
-  return "Sorry, cola is not longer available";
+  if ((this.currentQuantity = 0)) {
+    return "Sorry, cola is not longer available";
+  }
 };
