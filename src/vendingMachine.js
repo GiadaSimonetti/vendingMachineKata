@@ -21,17 +21,44 @@ VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
 };
 
 VendingMachine.prototype.chooseCola = function(cola) {
-  cola.buy();
+  if (cola.soldOut === true) {
+    return cola.soldOut;
+  } else {
+    cola.buy();
+    this.payCola(cola);
+    return "Thank you!";
+  }
+};
+
+VendingMachine.prototype.payCola = function(cola) {
   return (this.currentBalance += cola.price);
 };
 
 VendingMachine.prototype.chooseCandy = function(candy) {
-  candy.buy();
+  if (candy.soldOut === true) {
+    return candy.soldOut;
+  } else {
+    candy.buy();
+    this.payCandy(candy);
+    return "Thank you!";
+  }
+};
+
+VendingMachine.prototype.payCandy = function(candy) {
   return (this.currentBalance += candy.price);
 };
 
 VendingMachine.prototype.chooseChips = function(chips) {
-  chips.buy();
+  if (chips.soldOut === true) {
+    return chips.soldOut;
+  } else {
+    chips.buy();
+    this.payChips(chips);
+    return "Thank you!";
+  }
+};
+
+VendingMachine.prototype.payChips = function(chips) {
   return (this.currentBalance += chips.price);
 };
 
@@ -46,5 +73,15 @@ VendingMachine.prototype.counter = function(coin) {
     return coinsAmmount.push(coin);
   }
 };
+
+// VendingMachine.prototype.soldOutItem = function(cola, chips, candy) {
+//   if (chips.soldOut) {
+//     return chips.soldOut;
+//   } else if (candy.soldOut) {
+//     return candy.soldOut;
+//   } else if (cola.soldOut) {
+//     return cola.soldOut;
+//   }
+// };
 
 // VendingMachine.prototype.displaySoldOut = function(arguments) {};
