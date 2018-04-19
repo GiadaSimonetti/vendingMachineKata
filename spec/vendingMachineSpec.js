@@ -22,6 +22,10 @@ describe("Feature test", function() {
     expect(vendingMachine.initialBalance).toBe(0);
   });
 
+  it("returns the currentBalance", function() {
+    expect(vendingMachine.coinCounter).toBe(0);
+  });
+
   it("returns the ammount of coins as an empty array", function() {
     expect(vendingMachine.coinsAmmount).toEqual([]);
   });
