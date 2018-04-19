@@ -10,6 +10,7 @@ describe("Feature test", function() {
     chips = new Chips();
     vendingMachine = new VendingMachine();
   });
+
   it("returns the cola item", function() {
     expect(cola.price).toBe(1.0);
   });
@@ -22,13 +23,13 @@ describe("Feature test", function() {
     expect(vendingMachine.initialBalance).toBe(0);
   });
 
-  it("returns the currentBalance", function() {
-    expect(vendingMachine.coinCounter).toBe(0);
-  });
-
-  it("returns the ammount of coins as an empty array", function() {
-    expect(vendingMachine.coinsAmmount).toEqual([]);
-  });
+  // it("returns the currentBalance", function() {
+  //   expect(vendingMachine.coinCounter).toBe(0);
+  // });
+  //
+  // it("returns the ammount of coins as an empty array", function() {
+  //   expect(vendingMachine.coinsAmmount).toEqual([]);
+  // });
 
   it("displays the products with the price", function() {
     expect(vendingMachine.displayProducts(cola, candy, chips)).toBe(

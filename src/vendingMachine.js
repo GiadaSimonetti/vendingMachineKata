@@ -2,10 +2,11 @@ function VendingMachine() {
   var cola = new Cola();
   var chips = new Chips();
   var candy = new Candy();
+  var ammount = new Ammount();
   this.initialBalance = 0;
   this.currentBalance = 0;
-  this.coinCounter = 0;
-  this.coinsAmmount = [];
+  // this.coinCounter = 0;
+  // this.coinsAmmount = [];
 }
 
 VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
@@ -66,19 +67,3 @@ VendingMachine.prototype.payChips = function(chips) {
 VendingMachine.prototype.returnMoney = function() {
   return this.initialBalance;
 };
-
-// VendingMachine.prototype.counter = function(coin) {
-//   if (coin === 0.01) {
-//     return "No pennies, only  quarters, dimes and nickels";
-//   } else {
-//     this.coinsAmmount.push(coin);
-//     return;
-//   }
-// };
-
-// function getSum(total, num) {
-//     return total + num;
-// }
-// function myFunction(item) {
-//     return coinsAmmount.reduce(getSum, 0);
-// }
