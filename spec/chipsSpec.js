@@ -18,9 +18,6 @@ describe("Feature test", function() {
     expect(chips.currentQuantity).toBe(9);
   });
   it("returns sold out", function() {
-    spyOn(chips, "soldOut").and.returnValue(
-      "Sorry, chips are not longer available"
-    );
     expect(chips.soldOut()).toBe("Sorry, chips are not longer available");
   });
 });

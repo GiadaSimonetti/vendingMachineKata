@@ -9,7 +9,5 @@ Cola.prototype.buy = function() {
 };
 
 Cola.prototype.soldOut = function() {
-  if (this.currentQuantity === 0) {
-    return "Sorry, cola is not longer available";
-  }
+  return "Sorry, cola is not longer available";
 };

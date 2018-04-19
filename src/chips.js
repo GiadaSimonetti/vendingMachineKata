@@ -9,7 +9,5 @@ Chips.prototype.buy = function() {
 };
 
 Chips.prototype.soldOut = function() {
-  if (this.currentQuantity === 0) {
-    return "Sorry, chips are not longer available";
-  }
+  return "Sorry, chips are not longer available";
 };

@@ -18,9 +18,6 @@ describe("Feature test", function() {
     expect(candy.currentQuantity).toBe(9);
   });
   it("returns sold out", function() {
-    spyOn(candy, "soldOut").and.returnValue(
-      "Sorry, candy is not longer available"
-    );
     expect(candy.soldOut()).toBe("Sorry, candy is not longer available");
   });
 });

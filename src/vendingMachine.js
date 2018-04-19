@@ -21,7 +21,7 @@ VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
 };
 
 VendingMachine.prototype.chooseCola = function(cola) {
-  if (cola.soldOut() === true) {
+  if (cola.currentQuantity === 0) {
     return cola.soldOut();
   } else {
     cola.buy();
@@ -35,7 +35,7 @@ VendingMachine.prototype.payCola = function(cola) {
 };
 
 VendingMachine.prototype.chooseCandy = function(candy) {
-  if (candy.soldOut() === true) {
+  if (candy.currentQuantity === 0) {
     return candy.soldOut();
   } else {
     candy.buy();
@@ -49,7 +49,7 @@ VendingMachine.prototype.payCandy = function(candy) {
 };
 
 VendingMachine.prototype.chooseChips = function(chips) {
-  if (chips.soldOut() === true) {
+  if (chips.currentQuantity === 0) {
     return chips.soldOut();
   } else {
     chips.buy();

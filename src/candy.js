@@ -9,7 +9,5 @@ Candy.prototype.buy = function() {
 };
 
 Candy.prototype.soldOut = function() {
-  if (this.currentQuantity === 0) {
-    return "Sorry, candy is not longer available";
-  }
+  return "Sorry, candy is not longer available";
 };
