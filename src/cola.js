@@ -5,11 +5,11 @@ function Cola() {
 }
 
 Cola.prototype.buy = function() {
-  return this.currentQuantity--;
+  return (this.currentQuantity = this.currentQuantity - 1);
 };
 
 Cola.prototype.soldOut = function() {
-  if ((this.currentQuantity = 0)) {
+  if (this.currentQuantity === 0) {
     return "Sorry, cola is not longer available";
   }
 };

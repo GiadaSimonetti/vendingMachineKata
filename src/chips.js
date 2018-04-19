@@ -5,11 +5,11 @@ function Chips() {
 }
 
 Chips.prototype.buy = function() {
-  return this.currentQuantity--;
+  return (this.currentQuantity = this.currentQuantity - 1);
 };
 
 Chips.prototype.soldOut = function() {
-  if ((this.currentQuantity = 0)) {
+  if (this.currentQuantity === 0) {
     return "Sorry, chips are not longer available";
   }
 };

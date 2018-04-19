@@ -5,11 +5,11 @@ function Candy() {
 }
 
 Candy.prototype.buy = function() {
-  return this.currentQuantity--;
+  return (this.currentQuantity = this.currentQuantity - 1);
 };
 
 Candy.prototype.soldOut = function() {
-  if ((this.currentQuantity = 0)) {
+  if (this.currentQuantity === 0) {
     return "Sorry, candy is not longer available";
   }
 };

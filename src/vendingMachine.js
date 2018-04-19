@@ -21,8 +21,8 @@ VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
 };
 
 VendingMachine.prototype.chooseCola = function(cola) {
-  if (cola.soldOut === true) {
-    return cola.soldOut;
+  if (cola.soldOut() === true) {
+    return cola.soldOut();
   } else {
     cola.buy();
     this.payCola(cola);
@@ -35,8 +35,8 @@ VendingMachine.prototype.payCola = function(cola) {
 };
 
 VendingMachine.prototype.chooseCandy = function(candy) {
-  if (candy.soldOut === true) {
-    return candy.soldOut;
+  if (candy.soldOut() === true) {
+    return candy.soldOut();
   } else {
     candy.buy();
     this.payCandy(candy);
@@ -49,8 +49,8 @@ VendingMachine.prototype.payCandy = function(candy) {
 };
 
 VendingMachine.prototype.chooseChips = function(chips) {
-  if (chips.soldOut === true) {
-    return chips.soldOut;
+  if (chips.soldOut() === true) {
+    return chips.soldOut();
   } else {
     chips.buy();
     this.payChips(chips);
@@ -68,20 +68,16 @@ VendingMachine.prototype.returnMoney = function() {
 
 VendingMachine.prototype.counter = function(coin) {
   if (coin === 1) {
-    return;
+    return "No pennies, only  quarters, dimes and nickels";
   } else {
-    return coinsAmmount.push(coin);
+    this.coinsAmmount.push(coin);
+    return;
   }
 };
 
-// VendingMachine.prototype.soldOutItem = function(cola, chips, candy) {
-//   if (chips.soldOut) {
-//     return chips.soldOut;
-//   } else if (candy.soldOut) {
-//     return candy.soldOut;
-//   } else if (cola.soldOut) {
-//     return cola.soldOut;
-//   }
-// };
-
-// VendingMachine.prototype.displaySoldOut = function(arguments) {};
+// function getSum(total, num) {
+//     return total + num;
+// }
+// function myFunction(item) {
+//     return coinsAmmount.reduce(getSum, 0);
+// }
