@@ -25,6 +25,8 @@ describe("Feature test", function() {
   });
 
   it("returns the sum of the coin inserted", function() {
-    expect(ammount.coinsAmmount).toEqual([]);
+    ammount.insertCoins(0.25);
+    ammount.insertCoins(0.1);
+    expect(ammount.sumCoins()).toEqual(0.35);
   });
 });
