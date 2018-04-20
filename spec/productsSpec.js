@@ -15,7 +15,6 @@ describe("Feature test", function() {
 
   it("displays the products with the price", function() {
     spyOn(products, "display").and.returnValue("kitKat, 30, 1.5");
-    // spyOn(game, "rockWins").and.returnValue("rock wins!");
     expect(products.display()).toBe("kitKat = $1.5");
   });
 });
