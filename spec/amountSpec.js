@@ -29,4 +29,9 @@ describe("Feature test", function() {
     amount.insertCoins(0.1);
     expect(amount.sumCoins()).toEqual(0.35);
   });
+
+  it("reset the amount of coins as an empty array", function() {
+    amount.emptyCoinsAmmount();
+    expect(amount.coinsAmount).toEqual([]);
+  });
 });

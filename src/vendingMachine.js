@@ -20,18 +20,23 @@ VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
   );
 };
 
-// VendingMachine.prototype.method = function(amount) {
-//   amount.insertCoins(coin);
-//   amount.sumCoins();
-// };
+VendingMachine.prototype.totalCoinsInserted = function() {
+  return amount.sumCoins();
+};
 
 VendingMachine.prototype.chooseCola = function(cola) {
   if (cola.currentQuantity === 0) {
     return cola.soldOut();
   } else {
-    cola.buy();
-    this.payCola(cola);
-    return "Thank you!";
+    if (this.totalCoinsInserted() === cola.price) {
+      cola.buy();
+      this.payCola(cola);
+      return "Thank you!";
+    } else if (this.totalCoinsInserted() < cola.price) {
+      return "Not enough coins, insert more please";
+    } else {
+      return "CHANGE";
+    }
   }
 };
 

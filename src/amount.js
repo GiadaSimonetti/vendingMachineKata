@@ -19,8 +19,7 @@ Amount.prototype.sumCoins = function() {
   }
   return s;
 };
-//
-// Amount.prototype.totalCoinsInserted = function() {
-//   this.insertCoins();
-//   this.sumCoins();
-// };
+
+Amount.prototype.emptyCoinsAmmount = function() {
+  return (this.coinsAmount = []);
+};
