@@ -2,7 +2,7 @@ function VendingMachine() {
   var cola = new Cola();
   var chips = new Chips();
   var candy = new Candy();
-  var ammount = new Ammount();
+  var amount = new Amount();
   this.initialBalance = 0;
   this.currentBalance = 0;
 }
@@ -19,6 +19,11 @@ VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
     "."
   );
 };
+
+// VendingMachine.prototype.method = function(amount) {
+//   amount.insertCoins(coin);
+//   amount.sumCoins();
+// };
 
 VendingMachine.prototype.chooseCola = function(cola) {
   if (cola.currentQuantity === 0) {

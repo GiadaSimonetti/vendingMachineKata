@@ -2,12 +2,14 @@ describe("Feature test", function() {
   var cola;
   var candy;
   var chips;
+  var ammount;
   var vendingMachine;
 
   beforeEach(function() {
     cola = new Cola();
     candy = new Candy();
     chips = new Chips();
+    ammount = new Ammount();
     vendingMachine = new VendingMachine();
   });
 
