@@ -5,6 +5,11 @@ function VendingMachine() {
   var amount = new Amount();
   this.initialBalance = 0;
   this.currentBalance = 0;
+  this.initialiseProducts([
+    new Product("Cola", 10, 1.2),
+    new Product("Candy", 15, 1.6),
+    new Product("Chips", 6, 1.8)
+  ]);
 }
 
 VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
