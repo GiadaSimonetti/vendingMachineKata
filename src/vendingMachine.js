@@ -5,8 +5,6 @@ function VendingMachine() {
   var ammount = new Ammount();
   this.initialBalance = 0;
   this.currentBalance = 0;
-  // this.coinCounter = 0;
-  // this.coinsAmmount = [];
 }
 
 VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
