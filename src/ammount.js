@@ -3,18 +3,19 @@ function Ammount() {
   this.coinsAmmount = [];
 }
 
-// VendingMachine.prototype.counter = function(coin) {
-//   if (coin === 0.01) {
-//     return "No pennies, only  quarters, dimes and nickels";
-//   } else {
-//     this.coinsAmmount.push(coin);
-//     return;
-//   }
-// };
+Ammount.prototype.insertCoins = function(coin) {
+  if (coin === 0.01) {
+    return "No pennies, only  quarters, dimes and nickels";
+  } else {
+    this.coinsAmmount.push(coin);
+    return;
+  }
+};
 
-// function getSum(total, num) {
-//     return total + num;
-// }
-// function myFunction(item) {
-//     return coinsAmmount.reduce(getSum, 0);
-// }
+Ammount.prototype.sumCoins = function() {
+  s = 0;
+  for (var i = 0; i < this.coinsAmmount.length; i++) {
+    s = s + this.coinsAmmount[i];
+  }
+  return s;
+};
