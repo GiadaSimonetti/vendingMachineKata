@@ -15,7 +15,7 @@ describe("Feature test", function() {
 
   it("check if the coin is a penny", function() {
     ammount.insertCoins(0.25);
-    expect(ammount.coinsAmmount).toEqual([]);
+    expect(ammount.coinsAmmount).toEqual([0.25]);
   });
 
   it("returns the sum of the coin inserted", function() {
