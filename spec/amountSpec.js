@@ -31,7 +31,7 @@ describe("Feature test", function() {
   });
 
   it("reset the amount of coins as an empty array", function() {
-    amount.emptyCoinsAmmount();
+    amount.emptyCoinsAmount();
     expect(amount.coinsAmount).toEqual([]);
   });
 });

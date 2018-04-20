@@ -17,9 +17,10 @@ Amount.prototype.sumCoins = function() {
   for (var i = 0; i < this.coinsAmount.length; i++) {
     s = s + this.coinsAmount[i];
   }
+  amount.emptyCoinsAmount();
   return s;
 };
 
-Amount.prototype.emptyCoinsAmmount = function() {
+Amount.prototype.emptyCoinsAmount = function() {
   return (this.coinsAmount = []);
 };
