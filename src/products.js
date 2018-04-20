@@ -11,3 +11,7 @@ Products.prototype.buyProduct = function() {
 Products.prototype.soldOut = function() {
   return `Sorry! This ${this._name} is not longer available`;
 };
+
+Products.prototype.display = function() {
+  return `${this._name}: $${this._quantity}`;
+};

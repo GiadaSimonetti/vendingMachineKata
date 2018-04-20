@@ -13,22 +13,16 @@ describe("Feature test", function() {
     vendingMachine = new VendingMachine();
   });
 
-  it("returns the cola item", function() {
-    expect(cola.price).toBe(1.0);
-  });
+  // it("returns the cola item", function() {
+  //   expect(cola.price).toBe(1.0);
+  // });
 
   it("returns the currentBalance", function() {
     expect(vendingMachine.currentBalance).toBe(0);
   });
 
-  it("returns the currentBalance", function() {
+  it("returns the initialBalance", function() {
     expect(vendingMachine.initialBalance).toBe(0);
-  });
-
-  it("displays the products with the price", function() {
-    expect(vendingMachine.displayProducts(cola, candy, chips)).toBe(
-      "Products: cola = $1, candy = $0.5, chips = $0.65."
-    );
   });
 
   it("returns the total paid for a cola", function() {

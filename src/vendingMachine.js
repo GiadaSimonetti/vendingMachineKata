@@ -1,7 +1,7 @@
 function VendingMachine() {
-  var cola = new Cola();
-  var chips = new Chips();
-  var candy = new Candy();
+  // var cola = new Cola();
+  // var chips = new Chips();
+  // var candy = new Candy();
   var amount = new Amount();
   this.initialBalance = 0;
   this.currentBalance = 0;
@@ -11,19 +11,19 @@ function VendingMachine() {
     new Product("Chips", 6, 1.8)
   ]);
 }
-
-VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
-  return (
-    "Products: cola" +
-    " = $" +
-    cola.price +
-    ", candy = $" +
-    candy.price +
-    ", chips = $" +
-    chips.price +
-    "."
-  );
-};
+//
+// VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
+//   return (
+//     "Products: cola" +
+//     " = $" +
+//     cola.price +
+//     ", candy = $" +
+//     candy.price +
+//     ", chips = $" +
+//     chips.price +
+//     "."
+//   );
+// };
 
 VendingMachine.prototype.totalCoinsInserted = function() {
   return amount.sumCoins();
