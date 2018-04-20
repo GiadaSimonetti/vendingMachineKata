@@ -14,6 +14,12 @@ describe("Feature test", function() {
   });
 
   it("check if the coin is a penny", function() {
+    expect(ammount.insertCoins(0.01)).toEqual(
+      "No pennies, only  quarters, dimes and nickels"
+    );
+  });
+
+  it("Add the coin to the coinsAmmount array", function() {
     ammount.insertCoins(0.25);
     expect(ammount.coinsAmmount).toEqual([0.25]);
   });
