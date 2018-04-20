@@ -23,14 +23,6 @@ describe("Feature test", function() {
     expect(vendingMachine.initialBalance).toBe(0);
   });
 
-  // it("returns the currentBalance", function() {
-  //   expect(vendingMachine.coinCounter).toBe(0);
-  // });
-  //
-  // it("returns the ammount of coins as an empty array", function() {
-  //   expect(vendingMachine.coinsAmmount).toEqual([]);
-  // });
-
   it("displays the products with the price", function() {
     expect(vendingMachine.displayProducts(cola, candy, chips)).toBe(
       "Products: cola = $1, candy = $0.5, chips = $0.65."
@@ -48,7 +40,6 @@ describe("Feature test", function() {
   });
 
   it("returns 'Thank You!' after choose a cola", function() {
-    // cola.currentQuantity = 9;
     vendingMachine.payCola(cola);
     cola.buy();
     expect(vendingMachine.chooseCola(cola)).toEqual("Thank you!");
@@ -82,7 +73,6 @@ describe("Feature test", function() {
   });
 
   it("returns 'Thank You!' after choose a chips", function() {
-    // chips.currentQuantity = 9;
     vendingMachine.payCola(chips);
     chips.buy();
     expect(vendingMachine.chooseChips(chips)).toEqual("Thank you!");
