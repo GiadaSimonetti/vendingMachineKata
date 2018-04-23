@@ -4,7 +4,7 @@ function Products(name, price, quantity) {
   this._quantity = quantity;
 }
 
-Products.prototype.buyProduct = function() {
+Products.prototype.decreaseQuantity = function() {
   this._quantity--;
 };
 

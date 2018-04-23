@@ -27,7 +27,7 @@ describe("Amount test", function() {
   it("returns the sum of the coin inserted", function() {
     amount.insertCoins(0.25);
     amount.insertCoins(0.1);
-    expect(amount.sumCoins()).toEqual(0.35);
+    expect(amount.coinCounter).toEqual(0.35);
   });
 
   it("reset the amount of coins as an empty array", function() {

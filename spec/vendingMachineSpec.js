@@ -46,13 +46,18 @@ describe("VendingMachine test", function() {
   });
 
   it("displays all the products", function() {
-    cola = jasmine.createSpyObj('products', {'display': 'Cola: $1.2 '})
-    candy = jasmine.createSpyObj('products', {'display': 'Candy: $1.6 '})
-    chips = jasmine.createSpyObj('products', {'display': 'Chips: $1.8 '})
+    cola = jasmine.createSpyObj("products", { display: "Cola: $1.2 " });
+    candy = jasmine.createSpyObj("products", { display: "Candy: $1.6 " });
+    chips = jasmine.createSpyObj("products", { display: "Chips: $1.8 " });
     expect(vendingMachine.displayAllProducts()).toEqual(
       "Cola: $1.2 \nCandy: $1.6 \nChips: $1.8"
     );
   });
+
+  // it("selects the items from the vending machine", function() {
+  //   amount.amount.coinCounter;
+  //   expect(vendingMachine.selectItem(item)).toBe("Thank you!");
+  // });
 
   it("returns default balance after press return money", function() {
     expect(vendingMachine.returnMoney()).toBe(0);

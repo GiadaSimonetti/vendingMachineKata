@@ -5,7 +5,7 @@ describe("Products test", function() {
   });
 
   it("returns the quantity less one", function() {
-    products.buyProduct();
+    products.decreaseQuantity();
     expect(products._quantity).toEqual(29);
   });
 

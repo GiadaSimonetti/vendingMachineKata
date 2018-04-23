@@ -8,16 +8,17 @@ Amount.prototype.insertCoins = function(coin) {
     return "No pennies, only  quarters, dimes and nickels";
   } else {
     this.coinsAmount.push(coin);
-    return;
+    this._sumCoins();
   }
 };
 
-Amount.prototype.sumCoins = function() {
+Amount.prototype._sumCoins = function() {
   s = 0;
   for (var i = 0; i < this.coinsAmount.length; i++) {
     s = s + this.coinsAmount[i];
   }
-  return s;
+  this.coinCounter = s;
+  return this.coinCounter;
 };
 
 Amount.prototype.emptyCoinsAmount = function() {
