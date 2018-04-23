@@ -67,8 +67,14 @@ describe("VendingMachine test", function() {
   it("reduce by 1 the quantity of the item", function() {
     vendingMachine.amount.insertCoins(5);
     vendingMachine.selectItem("Cola");
-    // cola = jasmine.createSpyObj(products, { decreaseQuantity: 9})
     expect(vendingMachine.itemList[0]._quantity).toEqual(9);
+  });
+
+  it("returns an ampty array after the purchase", function() {
+    vendingMachine.amount.insertCoins(5);
+    vendingMachine.selectItem("Cola");
+    vendingMachine.amount.emptyCoinsAmount();
+    expect(vendingMachine.amount.coinsAmount).toEqual([]);
   });
 
   it("returns default balance after press return money", function() {

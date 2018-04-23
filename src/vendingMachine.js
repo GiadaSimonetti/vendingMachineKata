@@ -21,6 +21,7 @@ VendingMachine.prototype.selectItem = function(item) {
   var itemIndex = this.itemList.findIndex(x => x._name == item);
   if (this.amount.coinCounter >= this.itemList[itemIndex]._price) {
     this.itemList[itemIndex].decreaseQuantity();
+    this.amount.emptyCoinsAmount();
     return "Thank you!";
   } else {
     return "You need to insert more coins!";
