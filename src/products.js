@@ -1,4 +1,4 @@
-function Products(name, quantity, price) {
+function Products(name, price, quantity) {
   this._name = name;
   this._price = price;
   this._quantity = quantity;
@@ -13,5 +13,5 @@ Products.prototype.soldOut = function() {
 };
 
 Products.prototype.display = function() {
-  return `${this._name}: $${this._quantity}`;
+  return `${this._name}: $${this._price}`;
 };

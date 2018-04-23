@@ -4,6 +4,6 @@ module.exports = function(config) {
 
     files: ["src/*.js", "spec/*.js"],
     browsers: ["ChromeHeadless"],
-    reporters: ['spec']
+    reporters: ["spec"]
   });
 };

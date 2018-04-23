@@ -1,7 +1,7 @@
 describe("Feature test", function() {
   var products;
   beforeEach(function() {
-    products = new Products();
+    products = new Products("kitKat", 1.5, 30);
   });
   it("returns the quantity less one", function() {
     products.buyProduct();
@@ -14,7 +14,6 @@ describe("Feature test", function() {
   });
 
   it("displays the products with the price", function() {
-    spyOn(products, "display").and.returnValue("kitKat, 30, 1.5");
-    expect(products.display()).toBe("kitKat = $1.5");
+    expect(products.display()).toBe("kitKat: $1.5");
   });
 });
