@@ -1,4 +1,4 @@
-describe("Feature test", function() {
+describe("Amount test", function() {
   var amount;
 
   beforeEach(function() {
