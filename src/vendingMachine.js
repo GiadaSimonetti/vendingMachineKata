@@ -14,21 +14,12 @@ VendingMachine.prototype.totalCoinsInserted = function() {
 };
 
 VendingMachine.prototype.displayAllProducts = function() {
-  var arr = [];
-  this.itemList.forEach(function(item) {
-    arr.push(`${item._name}: $${item._price}`);
-  });
-  return arr.join(" \n");
+  var arr = []
+  for(i = 0; i < this.itemList.length; i++) {
+    arr.push(this.itemList[i].display())
+  }
+ return arr.join(" \n")
 };
-
-// VendingMachine.prototype.displayAllProducts = function() {
-//   var item;
-//   for (i = 0; i < this.itemList.length; i++) {
-//     item = `${this.itemList[i]._name}: $${this.itemList[i]._price}`;
-//     return item;
-//   }
-//   return item;
-// };
 
 VendingMachine.prototype.returnMoney = function() {
   return this.initialBalance;

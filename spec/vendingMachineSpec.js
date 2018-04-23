@@ -46,7 +46,9 @@ describe("VendingMachine test", function() {
   });
 
   it("displays all the products", function() {
-    var itemList = [cola, chips, candy];
+    cola = jasmine.createSpyObj('products', {'display': 'Cola: $1.2 '})
+    candy = jasmine.createSpyObj('products', {'display': 'Candy: $1.6 '})
+    chips = jasmine.createSpyObj('products', {'display': 'Chips: $1.8 '})
     expect(vendingMachine.displayAllProducts()).toEqual(
       "Cola: $1.2 \nCandy: $1.6 \nChips: $1.8"
     );
