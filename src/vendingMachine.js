@@ -9,10 +9,6 @@ function VendingMachine() {
   ];
 }
 
-VendingMachine.prototype.totalCoinsInserted = function() {
-  return this.amount.coinCounter;
-};
-
 VendingMachine.prototype.displayAllProducts = function() {
   var arr = [];
   for (i = 0; i < this.itemList.length; i++) {
@@ -23,7 +19,8 @@ VendingMachine.prototype.displayAllProducts = function() {
 
 VendingMachine.prototype.selectItem = function(item) {
   var itemIndex = this.itemList.findIndex(x => x._name == item);
-  if (this.totalCoinsInserted() >= this.itemList[itemIndex]._price) {
+  console.log(item)
+  if (this.amount.coinCounter >= this.itemList[itemIndex]._price) {
     return "Thank you!";
   } else {
     return "You need to insert more coins!";

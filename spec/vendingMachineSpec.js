@@ -53,15 +53,14 @@ describe("VendingMachine test", function() {
     );
   });
 
-  it('sums total coins inserted to the machine', function(){
-    vendingMachine.amount.insertCoins(5)
-    expect(vendingMachine.totalCoinsInserted()).toEqual(5)
-  })
-
   it("selects the items from the vending machine", function() {
     vendingMachine.amount.insertCoins(5)
     expect(vendingMachine.selectItem('Cola')).toBe("Thank you!");
   });
+
+  it('returns error message when balance is too low', function(){
+    expect(vendingMachine.selectItem('Cola')).toEqual('You need to insert more coins!')
+  })
 
   it("returns default balance after press return money", function() {
     expect(vendingMachine.returnMoney()).toBe(0);
