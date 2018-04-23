@@ -54,13 +54,22 @@ describe("VendingMachine test", function() {
   });
 
   it("selects the items from the vending machine", function() {
-    vendingMachine.amount.insertCoins(5)
-    expect(vendingMachine.selectItem('Cola')).toBe("Thank you!");
+    vendingMachine.amount.insertCoins(5);
+    expect(vendingMachine.selectItem("Cola")).toBe("Thank you!");
   });
 
-  it('returns error message when balance is too low', function(){
-    expect(vendingMachine.selectItem('Cola')).toEqual('You need to insert more coins!')
-  })
+  it("returns error message when balance is too low", function() {
+    expect(vendingMachine.selectItem("Cola")).toEqual(
+      "You need to insert more coins!"
+    );
+  });
+
+  it("reduce by 1 the quantity of the item", function() {
+    vendingMachine.amount.insertCoins(5);
+    vendingMachine.selectItem("Cola");
+    // cola = jasmine.createSpyObj(products, { decreaseQuantity: 9})
+    expect(vendingMachine.itemList[0]._quantity).toEqual(9);
+  });
 
   it("returns default balance after press return money", function() {
     expect(vendingMachine.returnMoney()).toBe(0);
