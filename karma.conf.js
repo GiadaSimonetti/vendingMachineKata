@@ -3,6 +3,7 @@ module.exports = function(config) {
     frameworks: ["jasmine"],
 
     files: ["src/*.js", "spec/*.js"],
-    browsers: ["ChromeHeadless"]
+    browsers: ["ChromeHeadless"],
+    reporters: ['spec']
   });
 };
