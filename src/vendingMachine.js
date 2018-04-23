@@ -2,69 +2,15 @@ function VendingMachine() {
   var amount = new Amount();
   this.initialBalance = 0;
   this.currentBalance = 0;
-  this.initialiseProducts();
-}
-
-VendingMachine.prototype.initialiseProducts = function(){
   this.itemList = [
-      new Products("Cola", 10, 1.2),
-      new Products("Candy", 15, 1.6),
-      new Products("Chips", 6, 1.8)
-    ]
+    new Products("Cola", 1.2, 10),
+    new Products("Candy", 1.6, 15),
+    new Products("Chips", 1.8, 6)
+  ];
 }
 
 VendingMachine.prototype.totalCoinsInserted = function() {
   return amount.sumCoins();
-};
-
-// VendingMachine.prototype.chooseCola = function(cola) {
-//   if (cola.currentQuantity === 0) {
-//     return cola.soldOut();
-//   } else {
-//     if (this.totalCoinsInserted() === cola.price) {
-//       cola.buy();
-//       this.payCola(cola);
-//       return "Thank you!";
-//     } else if (this.totalCoinsInserted() < cola.price) {
-//       return "Not enough coins, insert more please";
-//     } else {
-//       return "CHANGE";
-//     }
-//   }
-// };
-
-
-
-VendingMachine.prototype.payCola = function(cola) {
-  return (this.currentBalance += cola.price);
-};
-
-VendingMachine.prototype.chooseCandy = function(candy) {
-  if (candy.currentQuantity === 0) {
-    return candy.soldOut();
-  } else {
-    candy.buy();
-    this.payCandy(candy);
-    return "Thank you!";
-  }
-};
-
-VendingMachine.prototype.payCandy = function(candy) {
-  return (this.currentBalance += candy.price);
-};
-
-VendingMachine.prototype.chooseChips = function(chips) {
-  if (chips.currentQuantity === 0) {
-    return chips.soldOut();
-  } else {
-    chips.buy();
-    this.payChips(chips);
-    return "Thank you!";
-  }
-};
-
-VendingMachine.prototype.payChips = function(chips) {
-  return (this.currentBalance += chips.price);
 };
 
 VendingMachine.prototype.returnMoney = function() {
