@@ -8,11 +8,23 @@ describe("VendingMachine test", function() {
   beforeEach(function() {
     amount = new Amount();
     vendingMachine = new VendingMachine();
-    cola = jasmine.createSpyObj("cola", { _name: "Cola", _price: 1.2, _quantity: 10 });
+    cola = jasmine.createSpyObj("cola", {
+      _name: "Cola",
+      _price: 1.2,
+      _quantity: 10
+    });
 
-    chips = jasmine.createSpyObj("chips", { _name: "Chips", _price: 1.8, _quantity: 6 });
+    chips = jasmine.createSpyObj("chips", {
+      _name: "Chips",
+      _price: 1.8,
+      _quantity: 6
+    });
 
-    candy = jasmine.createSpyObj("candy", { _name: "Candy", _price: 1.6, _quantity: 15 });
+    candy = jasmine.createSpyObj("candy", {
+      _name: "Candy",
+      _price: 1.6,
+      _quantity: 15
+    });
   });
 
   it("returns the initialBalance", function() {
@@ -24,11 +36,20 @@ describe("VendingMachine test", function() {
   });
 
   it("returns the itemList array", function() {
-    console.log(cola._name()),
-    console.log(cola._price())
-      console.log(cola._quantity())
-      console.log(candy._name())
-    expect(vendingMachine.itemList).toContain(jasmine.objectContaining({_name: 'Cola', _name: 'Chips', _name: 'Candy'}));
+    expect(vendingMachine.itemList).toContain(
+      jasmine.objectContaining({
+        _name: "Cola",
+        _name: "Chips",
+        _name: "Candy"
+      })
+    );
+  });
+
+  it("displays all the products", function() {
+    var itemList = [cola, chips, candy];
+    expect(vendingMachine.displayAllProducts()).toEqual(
+      "Cola: $1.2 \nCandy: $1.6 \nChips: $1.8"
+    );
   });
 
   it("returns default balance after press return money", function() {
