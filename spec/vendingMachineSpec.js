@@ -1,12 +1,11 @@
 describe("VendingMachine test", function() {
-  var amount;
+  let amount;
   var vendingMachine;
   var cola;
   var chips;
   var candy;
 
   beforeEach(function() {
-    amount = new Amount();
     vendingMachine = new VendingMachine();
     cola = jasmine.createSpyObj("cola", {
       _name: "Cola",
@@ -54,10 +53,15 @@ describe("VendingMachine test", function() {
     );
   });
 
-  // it("selects the items from the vending machine", function() {
-  //   amount.amount.coinCounter;
-  //   expect(vendingMachine.selectItem(item)).toBe("Thank you!");
-  // });
+  it('sums total coins inserted to the machine', function(){
+    vendingMachine.amount.insertCoins(5)
+    expect(vendingMachine.totalCoinsInserted()).toEqual(5)
+  })
+
+  it("selects the items from the vending machine", function() {
+    vendingMachine.amount.insertCoins(5)
+    expect(vendingMachine.selectItem('Cola')).toBe("Thank you!");
+  });
 
   it("returns default balance after press return money", function() {
     expect(vendingMachine.returnMoney()).toBe(0);

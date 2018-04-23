@@ -1,5 +1,5 @@
 function VendingMachine() {
-  var amount = new Amount();
+  this.amount = new Amount();
   this.initialBalance = 0;
   this.currentBalance = 0;
   this.itemList = [
@@ -10,7 +10,7 @@ function VendingMachine() {
 }
 
 VendingMachine.prototype.totalCoinsInserted = function() {
-  return amount.sumCoins();
+  return this.amount.coinCounter;
 };
 
 VendingMachine.prototype.displayAllProducts = function() {
@@ -21,14 +21,14 @@ VendingMachine.prototype.displayAllProducts = function() {
   return arr.join(" \n");
 };
 
-// VendingMachine.prototype.selectItem = function(item) {
-//   var itemIndex = this.itemList.findIndex(x => x._name == item);
-//   if (amount.coinCounter >= this.itemList[itemIndex]._price) {
-//     return "Thank you!";
-//   } else {
-//     return "You need to insert more coins!";
-//   }
-// };
+VendingMachine.prototype.selectItem = function(item) {
+  var itemIndex = this.itemList.findIndex(x => x._name == item);
+  if (this.totalCoinsInserted() >= this.itemList[itemIndex]._price) {
+    return "Thank you!";
+  } else {
+    return "You need to insert more coins!";
+  }
+};
 
 VendingMachine.prototype.returnMoney = function() {
   return this.initialBalance;
