@@ -3,9 +3,10 @@ describe("Products test", function() {
   beforeEach(function() {
     products = new Products("kitKat", 1.5, 30);
   });
+
   it("returns the quantity less one", function() {
     products.buyProduct();
-    expect(products.itemQuantity).toEqual(9);
+    expect(products._quantity).toEqual(29);
   });
 
   it("returns a message if he product is soldOut", function() {
