@@ -1,4 +1,4 @@
-describe("Feature test", function() {
+describe("Products test", function() {
   var products;
   beforeEach(function() {
     products = new Products("kitKat", 1.5, 30);
@@ -7,9 +7,10 @@ describe("Feature test", function() {
     products.buyProduct();
     expect(products.itemQuantity).toEqual(9);
   });
+
   it("returns a message if he product is soldOut", function() {
     expect(products.soldOut()).toBe(
-      "Sorry! This product is not longer available"
+      "Sorry! This kitKat is not longer available"
     );
   });
 
