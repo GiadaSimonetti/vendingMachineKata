@@ -1,49 +1,39 @@
 function VendingMachine() {
-  // var cola = new Cola();
-  // var chips = new Chips();
-  // var candy = new Candy();
   var amount = new Amount();
   this.initialBalance = 0;
   this.currentBalance = 0;
-  this.initialiseProducts([
-    new Product("Cola", 10, 1.2),
-    new Product("Candy", 15, 1.6),
-    new Product("Chips", 6, 1.8)
-  ]);
+  this.initialiseProducts();
 }
-//
-// VendingMachine.prototype.displayProducts = function(cola, chips, candy) {
-//   return (
-//     "Products: cola" +
-//     " = $" +
-//     cola.price +
-//     ", candy = $" +
-//     candy.price +
-//     ", chips = $" +
-//     chips.price +
-//     "."
-//   );
-// };
+
+VendingMachine.prototype.initialiseProducts = function(){
+  this.itemList = [
+      new Products("Cola", 10, 1.2),
+      new Products("Candy", 15, 1.6),
+      new Products("Chips", 6, 1.8)
+    ]
+}
 
 VendingMachine.prototype.totalCoinsInserted = function() {
   return amount.sumCoins();
 };
 
-VendingMachine.prototype.chooseCola = function(cola) {
-  if (cola.currentQuantity === 0) {
-    return cola.soldOut();
-  } else {
-    if (this.totalCoinsInserted() === cola.price) {
-      cola.buy();
-      this.payCola(cola);
-      return "Thank you!";
-    } else if (this.totalCoinsInserted() < cola.price) {
-      return "Not enough coins, insert more please";
-    } else {
-      return "CHANGE";
-    }
-  }
-};
+// VendingMachine.prototype.chooseCola = function(cola) {
+//   if (cola.currentQuantity === 0) {
+//     return cola.soldOut();
+//   } else {
+//     if (this.totalCoinsInserted() === cola.price) {
+//       cola.buy();
+//       this.payCola(cola);
+//       return "Thank you!";
+//     } else if (this.totalCoinsInserted() < cola.price) {
+//       return "Not enough coins, insert more please";
+//     } else {
+//       return "CHANGE";
+//     }
+//   }
+// };
+
+
 
 VendingMachine.prototype.payCola = function(cola) {
   return (this.currentBalance += cola.price);
