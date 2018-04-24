@@ -18,15 +18,16 @@ VendingMachine.prototype.displayAllProducts = function() {
 
 VendingMachine.prototype.selectItem = function(item) {
   var itemIndex = this.itemList.findIndex(x => x._name == item);
-  if (this.amount.coinCounter == this.itemList[itemIndex]._price) {
+  var product = this.itemList[itemIndex]
+  if (this.amount.coinCounter == product._price) {
     this.itemList[itemIndex].decreaseQuantity();
-    this._addPriceToCurrentBalance(this.itemList[itemIndex]);
+    this._addPriceToCurrentBalance(product);
     this.amount.emptyCoinsAmount();
     return "Thank you!";
-  } else if (this.amount.coinCounter > this.itemList[itemIndex]._price){
+  } else if (this.amount.coinCounter > product._price){
     this.itemList[itemIndex].decreaseQuantity();
-    this._addPriceToCurrentBalance(this.itemList[itemIndex]);
-    return this._returnChange(this.itemList[itemIndex])
+    this._addPriceToCurrentBalance(product);
+    return this._returnChange(product)
 
 
   } else {
