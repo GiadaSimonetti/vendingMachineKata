@@ -49,8 +49,8 @@ describe("VendingMachine test", function() {
     );
   });
 
-  it("selects the items from the vending machine", function() {
-    vendingMachine.amount.insertCoins(5);
+  it("selects the items from the vending machine with exact change", function() {
+    vendingMachine.amount.insertCoins(1.2);
     expect(vendingMachine.selectItem("Cola")).toBe("Thank you!");
   });
 
@@ -91,4 +91,10 @@ describe("VendingMachine test", function() {
     vendingMachine.cancelPayment();
     expect(vendingMachine.amount.coinCounter).toEqual(0);
   });
+
+  it('selects item with amount greater than product price', function(){
+    vendingMachine.amount.insertCoins(2);
+    expect(vendingMachine.selectItem("Cola")).toEqual('$0.8 change dispensed')
+
+  })
 });

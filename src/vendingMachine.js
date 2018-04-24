@@ -18,15 +18,27 @@ VendingMachine.prototype.displayAllProducts = function() {
 
 VendingMachine.prototype.selectItem = function(item) {
   var itemIndex = this.itemList.findIndex(x => x._name == item);
-  if (this.amount.coinCounter >= this.itemList[itemIndex]._price) {
+  if (this.amount.coinCounter == this.itemList[itemIndex]._price) {
     this.itemList[itemIndex].decreaseQuantity();
     this._addPriceToCurrentBalance(this.itemList[itemIndex]);
     this.amount.emptyCoinsAmount();
     return "Thank you!";
+  } else if (this.amount.coinCounter > this.itemList[itemIndex]._price){
+    this.itemList[itemIndex].decreaseQuantity();
+    this._addPriceToCurrentBalance(this.itemList[itemIndex]);
+    return this._returnChange(this.itemList[itemIndex])
+
+
   } else {
     return "You need to insert more coins!";
   }
 };
+
+VendingMachine.prototype._returnChange = function(item){
+  var change = this.amount.coinCounter - item._price
+  this.amount.emptyCoinsAmount();
+  return `$${change} change dispensed`
+}
 
 VendingMachine.prototype._addPriceToCurrentBalance = function(item) {
   return (this.currentBalance += item._price);
