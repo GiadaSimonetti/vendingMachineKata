@@ -20,11 +20,16 @@ VendingMachine.prototype.selectItem = function(item) {
   var itemIndex = this.itemList.findIndex(x => x._name == item);
   if (this.amount.coinCounter >= this.itemList[itemIndex]._price) {
     this.itemList[itemIndex].decreaseQuantity();
+    this._addPriceToCurrentBalance(this.itemList[itemIndex]);
     this.amount.emptyCoinsAmount();
     return "Thank you!";
   } else {
     return "You need to insert more coins!";
   }
+};
+
+VendingMachine.prototype._addPriceToCurrentBalance = function(item) {
+  return (this.currentBalance += item._price);
 };
 
 VendingMachine.prototype._returnMoney = function() {

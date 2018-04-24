@@ -66,6 +66,13 @@ describe("VendingMachine test", function() {
     expect(vendingMachine.itemList[0]._quantity).toEqual(9);
   });
 
+  it("adds the price of the product to the currentBalance", function() {
+    vendingMachine.amount.insertCoins(1);
+    vendingMachine.amount.insertCoins(0.2);
+    vendingMachine.selectItem("Cola");
+    expect(vendingMachine.currentBalance).toEqual(6.2);
+  });
+
   it("returns an ampty array after the purchase", function() {
     vendingMachine.amount.insertCoins(5);
     vendingMachine.selectItem("Cola");
