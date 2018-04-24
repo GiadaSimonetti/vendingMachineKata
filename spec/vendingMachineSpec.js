@@ -74,8 +74,14 @@ describe("VendingMachine test", function() {
   });
 
   it("returns inserted coins on cancelPayment", function() {
-    vendingMachine.amount.insertCoins(2)
-    vendingMachine.cancelPayment()
+    vendingMachine.amount.insertCoins(2);
+    vendingMachine.cancelPayment();
     expect(vendingMachine.amount.coinsAmount).toEqual([]);
+  });
+
+  it("returns inserted coins on cancelPayment", function() {
+    vendingMachine.amount.insertCoins(2);
+    vendingMachine.cancelPayment();
+    expect(vendingMachine.amount.coinCounter).toEqual(0);
   });
 });

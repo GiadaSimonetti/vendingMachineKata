@@ -31,7 +31,12 @@ VendingMachine.prototype._returnMoney = function() {
   return this.amount.coinCounter;
 };
 
-VendingMachine.prototype.cancelPayment = function(){
-  this._returnMoney()
-  this.amount.emptyCoinsAmount()
-}
+VendingMachine.prototype._resetCoinCounter = function() {
+  return (this.amount.coinCounter = 0);
+};
+
+VendingMachine.prototype.cancelPayment = function() {
+  this._returnMoney();
+  this.amount.emptyCoinsAmount();
+  this._resetCoinCounter();
+};
