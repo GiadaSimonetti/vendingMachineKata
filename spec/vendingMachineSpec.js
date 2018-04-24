@@ -61,18 +61,10 @@ describe("VendingMachine test", function() {
   });
 
   it("checks if the item is available", function() {
-    vendingMachine.amount.insertCoins(1.8);
-    vendingMachine.selectItem("Chips");
-    vendingMachine.amount.insertCoins(1.8);
-    vendingMachine.selectItem("Chips");
-    vendingMachine.amount.insertCoins(1.8);
-    vendingMachine.selectItem("Chips");
-    vendingMachine.amount.insertCoins(1.8);
-    vendingMachine.selectItem("Chips");
-    vendingMachine.amount.insertCoins(1.8);
-    vendingMachine.selectItem("Chips");
-    vendingMachine.amount.insertCoins(1.8);
-    vendingMachine.selectItem("Chips");
+    for (var i = 0; i < 6; i++) {
+      vendingMachine.amount.insertCoins(1.8);
+      vendingMachine.selectItem("Chips");
+    }
     expect(vendingMachine.selectItem("Chips")).toEqual(
       "Sorry! Chips is not longer available"
     );
