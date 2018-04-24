@@ -10,9 +10,7 @@ describe("Products test", function() {
   });
 
   it("returns a message if he product is soldOut", function() {
-    expect(products.soldOut()).toBe(
-      "Sorry! This kitKat is not longer available"
-    );
+    expect(products.soldOut()).toBe("Sorry! kitKat is not longer available");
   });
 
   it("displays the products with the price", function() {

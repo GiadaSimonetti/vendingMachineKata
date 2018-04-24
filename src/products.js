@@ -9,7 +9,7 @@ Products.prototype.decreaseQuantity = function() {
 };
 
 Products.prototype.soldOut = function() {
-  return `Sorry! This ${this._name} is not longer available`;
+  return `Sorry! ${this._name} is not longer available`;
 };
 
 Products.prototype.display = function() {

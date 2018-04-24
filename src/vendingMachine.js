@@ -18,28 +18,31 @@ VendingMachine.prototype.displayAllProducts = function() {
 
 VendingMachine.prototype.selectItem = function(item) {
   var itemIndex = this.itemList.findIndex(x => x._name == item);
-  var product = this.itemList[itemIndex]
-  if (this.amount.coinCounter == product._price) {
-    this.itemList[itemIndex].decreaseQuantity();
-    this._addPriceToCurrentBalance(product);
-    this.amount.emptyCoinsAmount();
-    return "Thank you!";
-  } else if (this.amount.coinCounter > product._price){
-    this.itemList[itemIndex].decreaseQuantity();
-    this._addPriceToCurrentBalance(product);
-    return this._returnChange(product)
-
-
+  var product = this.itemList[itemIndex];
+  if (product._quantity > 0) {
+    if (this.amount.coinCounter == product._price) {
+      product.decreaseQuantity();
+      this._addPriceToCurrentBalance(product);
+      this.amount.emptyCoinsAmount();
+      return "Thank you!";
+    } else if (this.amount.coinCounter > product._price) {
+      product.decreaseQuantity();
+      this._addPriceToCurrentBalance(product);
+      return this._returnChange(product);
+    } else {
+      return "You need to insert more coins!";
+    }
   } else {
-    return "You need to insert more coins!";
+    console.log(product.soldOut());
+    return product.soldOut();
   }
 };
 
-VendingMachine.prototype._returnChange = function(item){
-  var change = this.amount.coinCounter - item._price
+VendingMachine.prototype._returnChange = function(item) {
+  var change = this.amount.coinCounter - item._price;
   this.amount.emptyCoinsAmount();
-  return `$${change} change dispensed`
-}
+  return `$${change} change dispensed`;
+};
 
 VendingMachine.prototype._addPriceToCurrentBalance = function(item) {
   return (this.currentBalance += item._price);
