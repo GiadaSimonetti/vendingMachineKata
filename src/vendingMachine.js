@@ -2,7 +2,7 @@ function VendingMachine() {
   this.amount = new Amount();
   this.currentBalance = 5;
   this.itemList = [
-    new Products("Cola", 1.2, 10),
+    new Products("Cola", 1.2, 1),
     new Products("Candy", 1.6, 15),
     new Products("Chips", 1.8, 6)
   ];
@@ -19,6 +19,7 @@ VendingMachine.prototype.displayAllProducts = function() {
 VendingMachine.prototype.selectItem = function(item) {
   var itemIndex = this.itemList.findIndex(x => x._name == item);
   var product = this.itemList[itemIndex];
+  // console.log(this.itemList[-1])
   if (product._quantity > 0) {
     if (this.amount.coinCounter == product._price) {
       product.decreaseQuantity();
@@ -33,7 +34,6 @@ VendingMachine.prototype.selectItem = function(item) {
       return "You need to insert more coins!";
     }
   } else {
-    console.log(product.soldOut());
     return product.soldOut();
   }
 };

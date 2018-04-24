@@ -61,15 +61,16 @@ describe("VendingMachine test", function() {
   });
 
   it("checks if the item is available", function() {
-    kitKat = jasmine.createSpyObj("kitKat", {
-      _name: "KitKat",
-      _price: 1.3,
-      _quantity: 0
-    });
-    vendingMachine.amount.insertCoins(1.3);
-    console.log(kitKat._name());
-    console.log(kitKat._quantity());
-    expect(vendingMachine.selectItem(kitKat._name())).toEqual(
+    // cola = jasmine.createSpyObj("cola", {
+    //   _name: "Cola",
+    //   _price: 1.2,
+    //   _quantity: 0
+    // });
+    // console.log(vendingMachine.itemList[0])
+    vendingMachine.amount.insertCoins(1.2);
+    vendingMachine.selectItem('Cola')
+    vendingMachine.amount.insertCoins(1.2);
+    expect(vendingMachine.selectItem('Cola')).toEqual(
       "Sorry! Cola is not longer available"
     );
   });
@@ -77,7 +78,7 @@ describe("VendingMachine test", function() {
   it("reduce by 1 the quantity of the item", function() {
     vendingMachine.amount.insertCoins(5);
     vendingMachine.selectItem("Cola");
-    expect(vendingMachine.itemList[0]._quantity).toEqual(9);
+    expect(vendingMachine.itemList[0]._quantity).toEqual(0);
   });
 
   it("adds the price of the product to the currentBalance", function() {
