@@ -2,7 +2,7 @@ function VendingMachine() {
   this.amount = new Amount();
   this.currentBalance = 5;
   this.itemList = [
-    new Products("Cola", 1.2, 1),
+    new Products("Cola", 1.2, 10),
     new Products("Candy", 1.6, 15),
     new Products("Chips", 1.8, 6)
   ];

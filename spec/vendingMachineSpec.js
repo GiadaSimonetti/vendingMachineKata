@@ -61,24 +61,27 @@ describe("VendingMachine test", function() {
   });
 
   it("checks if the item is available", function() {
-    // cola = jasmine.createSpyObj("cola", {
-    //   _name: "Cola",
-    //   _price: 1.2,
-    //   _quantity: 0
-    // });
-    // console.log(vendingMachine.itemList[0])
-    vendingMachine.amount.insertCoins(1.2);
-    vendingMachine.selectItem('Cola')
-    vendingMachine.amount.insertCoins(1.2);
-    expect(vendingMachine.selectItem('Cola')).toEqual(
-      "Sorry! Cola is not longer available"
+    vendingMachine.amount.insertCoins(1.8);
+    vendingMachine.selectItem("Chips");
+    vendingMachine.amount.insertCoins(1.8);
+    vendingMachine.selectItem("Chips");
+    vendingMachine.amount.insertCoins(1.8);
+    vendingMachine.selectItem("Chips");
+    vendingMachine.amount.insertCoins(1.8);
+    vendingMachine.selectItem("Chips");
+    vendingMachine.amount.insertCoins(1.8);
+    vendingMachine.selectItem("Chips");
+    vendingMachine.amount.insertCoins(1.8);
+    vendingMachine.selectItem("Chips");
+    expect(vendingMachine.selectItem("Chips")).toEqual(
+      "Sorry! Chips is not longer available"
     );
   });
 
   it("reduce by 1 the quantity of the item", function() {
     vendingMachine.amount.insertCoins(5);
     vendingMachine.selectItem("Cola");
-    expect(vendingMachine.itemList[0]._quantity).toEqual(0);
+    expect(vendingMachine.itemList[0]._quantity).toEqual(9);
   });
 
   it("adds the price of the product to the currentBalance", function() {
