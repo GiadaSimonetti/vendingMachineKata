@@ -1,7 +1,6 @@
 function VendingMachine() {
   this.amount = new Amount();
-  this.initialBalance = 0;
-  this.currentBalance = 0;
+  this.currentBalance = 5;
   this.itemList = [
     new Products("Cola", 1.2, 10),
     new Products("Candy", 1.6, 15),
@@ -28,6 +27,11 @@ VendingMachine.prototype.selectItem = function(item) {
   }
 };
 
-VendingMachine.prototype.returnMoney = function() {
-  return this.initialBalance;
+VendingMachine.prototype._returnMoney = function() {
+  return this.amount.coinCounter;
 };
+
+VendingMachine.prototype.cancelPayment = function(){
+  this._returnMoney()
+  this.amount.emptyCoinsAmount()
+}

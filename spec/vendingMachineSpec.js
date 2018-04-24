@@ -26,12 +26,8 @@ describe("VendingMachine test", function() {
     });
   });
 
-  it("returns the initialBalance", function() {
-    expect(vendingMachine.initialBalance).toBe(0);
-  });
-
-  it("returns the currentBalance", function() {
-    expect(vendingMachine.currentBalance).toBe(0);
+  it("vendingMachine balance starts at 5", function() {
+    expect(vendingMachine.currentBalance).toBe(5);
   });
 
   it("returns the itemList array", function() {
@@ -77,7 +73,9 @@ describe("VendingMachine test", function() {
     expect(vendingMachine.amount.coinsAmount).toEqual([]);
   });
 
-  it("returns default balance after press return money", function() {
-    expect(vendingMachine.returnMoney()).toBe(0);
+  it("returns inserted coins on cancelPayment", function() {
+    vendingMachine.amount.insertCoins(2)
+    vendingMachine.cancelPayment()
+    expect(vendingMachine.amount.coinsAmount).toEqual([]);
   });
 });
