@@ -1,6 +1,6 @@
 class VendingMachine{
   constructor(){
-    this.amount = new Amount();
+    this.balance = new Balance();
     this.currentBalance = 5;
     this.itemList = [
       new Products("Cola", 1.2, 10),
@@ -21,10 +21,10 @@ class VendingMachine{
     var itemIndex = this.itemList.findIndex(x => x._name == item);
     var product = this.itemList[itemIndex];
     if (product._quantity > 0) {
-      if (this.amount.coinCounter >= product._price) {
+      if (this.balance.coinSum >= product._price) {
         product.decreaseQuantity();
         this._addPriceToCurrentBalance(product);
-        this.amount.emptyCoinsAmount();
+        this.balance.emptyCoinsAmount();
         return this._returnChange(product);
       } else {
         return "You need to insert more coins!";
@@ -36,13 +36,13 @@ class VendingMachine{
 
   cancelPayment() {
     this._returnMoney();
-    this.amount.emptyCoinsAmount();
+    this.balance.emptyCoinsAmount();
     this._resetCoinCounter();
   };
 
   _returnChange(item) {
-    var change = this.amount.coinCounter - item._price;
-    this.amount.emptyCoinsAmount();
+    var change = this.balance.coinSum - item._price;
+    this.balance.emptyCoinsAmount();
     return `Thank you! $${change} change dispensed.`;
   };
 
@@ -51,10 +51,10 @@ class VendingMachine{
   };
 
   _returnMoney() {
-    return this.amount.coinCounter;
+    return this.balance.coinSum;
   };
 
   _resetCoinCounter() {
-    return (this.amount.coinCounter = 0);
+    return (this.balance.coinSum = 0);
   };
 }

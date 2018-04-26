@@ -1,37 +1,37 @@
 describe("Amount test", function() {
-  var amount;
+  var balance;
 
   beforeEach(function() {
-    amount = new Amount();
+    balance = new Balance();
   });
 
   it("returns the currentBalance", function() {
-    expect(amount.coinCounter).toBe(0);
+    expect(balance.coinSum).toBe(0);
   });
 
-  it("returns the amount of coins as an empty array", function() {
-    expect(amount.coinsAmount).toEqual([]);
+  it("returns the balance of coins as an empty array", function() {
+    expect(balance.coinsInserted).toEqual([]);
   });
 
   it("check if the coin is a penny", function() {
-    expect(amount.insertCoins(0.01)).toEqual(
+    expect(balance.insertCoins(0.01)).toEqual(
       "No pennies, only  quarters, dimes and nickels"
     );
   });
 
   it("Add the coin to the coinsAmount array", function() {
-    amount.insertCoins(0.25);
-    expect(amount.coinsAmount).toEqual([0.25]);
+    balance.insertCoins(0.25);
+    expect(balance.coinsInserted).toEqual([0.25]);
   });
 
   it("returns the sum of the coin inserted", function() {
-    amount.insertCoins(0.25);
-    amount.insertCoins(0.1);
-    expect(amount.coinCounter).toEqual(0.35);
+    balance.insertCoins(0.25);
+    balance.insertCoins(0.1);
+    expect(balance.coinSum).toEqual(0.35);
   });
 
-  it("reset the amount of coins as an empty array", function() {
-    amount.emptyCoinsAmount();
-    expect(amount.coinsAmount).toEqual([]);
+  it("reset the balance of coins as an empty array", function() {
+    balance.emptyCoinsAmount();
+    expect(balance.coinsInserted).toEqual([]);
   });
 });

@@ -1,5 +1,5 @@
 describe("VendingMachine test", function() {
-  let amount;
+  let balance;
   var vendingMachine;
   var cola;
   var chips;
@@ -50,7 +50,7 @@ describe("VendingMachine test", function() {
   });
 
   it("selects the items from the vending machine with exact change", function() {
-    vendingMachine.amount.insertCoins(1.2);
+    vendingMachine.balance.insertCoins(1.2);
     expect(vendingMachine.selectItem("Cola")).toBe("Thank you! $0 change dispensed.");
   });
 
@@ -62,7 +62,7 @@ describe("VendingMachine test", function() {
 
   it("checks if the item is available", function() {
     for (var i = 0; i < 6; i++) {
-      vendingMachine.amount.insertCoins(1.8);
+      vendingMachine.balance.insertCoins(1.8);
       vendingMachine.selectItem("Chips");
     }
     expect(vendingMachine.selectItem("Chips")).toEqual(
@@ -71,39 +71,39 @@ describe("VendingMachine test", function() {
   });
 
   it("reduce by 1 the quantity of the item", function() {
-    vendingMachine.amount.insertCoins(5);
+    vendingMachine.balance.insertCoins(5);
     vendingMachine.selectItem("Cola");
     expect(vendingMachine.itemList[0]._quantity).toEqual(9);
   });
 
   it("adds the price of the product to the currentBalance", function() {
-    vendingMachine.amount.insertCoins(1);
-    vendingMachine.amount.insertCoins(0.2);
+    vendingMachine.balance.insertCoins(1);
+    vendingMachine.balance.insertCoins(0.2);
     vendingMachine.selectItem("Cola");
     expect(vendingMachine.currentBalance).toEqual(6.2);
   });
 
   it("returns an ampty array after the purchase", function() {
-    vendingMachine.amount.insertCoins(5);
+    vendingMachine.balance.insertCoins(5);
     vendingMachine.selectItem("Cola");
-    vendingMachine.amount.emptyCoinsAmount();
-    expect(vendingMachine.amount.coinsAmount).toEqual([]);
+    vendingMachine.balance.emptyCoinsAmount();
+    expect(vendingMachine.balance.coinsInserted).toEqual([]);
   });
 
   it("returns inserted coins on cancelPayment", function() {
-    vendingMachine.amount.insertCoins(2);
+    vendingMachine.balance.insertCoins(2);
     vendingMachine.cancelPayment();
-    expect(vendingMachine.amount.coinsAmount).toEqual([]);
+    expect(vendingMachine.balance.coinsInserted).toEqual([]);
   });
 
   it("returns inserted coins on cancelPayment", function() {
-    vendingMachine.amount.insertCoins(2);
+    vendingMachine.balance.insertCoins(2);
     vendingMachine.cancelPayment();
-    expect(vendingMachine.amount.coinCounter).toEqual(0);
+    expect(vendingMachine.balance.coinSum).toEqual(0);
   });
 
-  it("selects item with amount greater than product price", function() {
-    vendingMachine.amount.insertCoins(2);
+  it("selects item with balance greater than product price", function() {
+    vendingMachine.balance.insertCoins(2);
     expect(vendingMachine.selectItem("Cola")).toEqual("Thank you! $0.8 change dispensed.");
   });
 });

@@ -1,28 +1,28 @@
-class Amount{
+class Balance{
   constructor() {
-    this.coinCounter = 0;
-    this.coinsAmount = [];
+    this.coinSum = 0;
+    this.coinsInserted = [];
   }
 
   insertCoins(coin){
     if (coin === 0.01) {
       return "No pennies, only  quarters, dimes and nickels";
     } else {
-      this.coinsAmount.push(coin);
+      this.coinsInserted.push(coin);
       this._sumCoins();
     }
   };
 
   emptyCoinsAmount(){
-    return (this.coinsAmount = []);
+    return (this.coinsInserted = []);
   };
 
   _sumCoins(s){
     s = 0;
-    for (var i = 0; i < this.coinsAmount.length; i++) {
-      s = s + this.coinsAmount[i];
+    for (var i = 0; i < this.coinsInserted.length; i++) {
+      s = s + this.coinsInserted[i];
     }
-    this.coinCounter = s;
-    return this.coinCounter;
+    this.coinSum = s;
+    return this.coinSum;
   };
 }
