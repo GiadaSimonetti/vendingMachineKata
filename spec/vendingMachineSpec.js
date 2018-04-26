@@ -51,7 +51,7 @@ describe("VendingMachine test", function() {
 
   it("selects the items from the vending machine with exact change", function() {
     vendingMachine.amount.insertCoins(1.2);
-    expect(vendingMachine.selectItem("Cola")).toBe("Thank you!");
+    expect(vendingMachine.selectItem("Cola")).toBe("Thank you! $0 change dispensed.");
   });
 
   it("returns error message when balance is too low", function() {
@@ -104,6 +104,6 @@ describe("VendingMachine test", function() {
 
   it("selects item with amount greater than product price", function() {
     vendingMachine.amount.insertCoins(2);
-    expect(vendingMachine.selectItem("Cola")).toEqual("$0.8 change dispensed");
+    expect(vendingMachine.selectItem("Cola")).toEqual("Thank you! $0.8 change dispensed.");
   });
 });

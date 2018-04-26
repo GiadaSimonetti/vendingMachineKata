@@ -21,14 +21,10 @@ class VendingMachine{
     var itemIndex = this.itemList.findIndex(x => x._name == item);
     var product = this.itemList[itemIndex];
     if (product._quantity > 0) {
-      if (this.amount.coinCounter == product._price) {
+      if (this.amount.coinCounter >= product._price) {
         product.decreaseQuantity();
         this._addPriceToCurrentBalance(product);
         this.amount.emptyCoinsAmount();
-        return "Thank you!";
-      } else if (this.amount.coinCounter > product._price) {
-        product.decreaseQuantity();
-        this._addPriceToCurrentBalance(product);
         return this._returnChange(product);
       } else {
         return "You need to insert more coins!";
@@ -47,7 +43,7 @@ class VendingMachine{
   _returnChange(item) {
     var change = this.amount.coinCounter - item._price;
     this.amount.emptyCoinsAmount();
-    return `$${change} change dispensed`;
+    return `Thank you! $${change} change dispensed.`;
   };
 
   _addPriceToCurrentBalance(item) {
